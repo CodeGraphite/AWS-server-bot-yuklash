@@ -1,0 +1,25 @@
+
+sudo nano test.py ### test.py degan fayl yaratish!!
+sudo rm -r test.py ### test.py faylni ochirish
+
+
+#######################
+
+1.sudo nano /etc/supervisor/conf.d/bot.conf ### bot.conf degan fayl yaratiladi
+    ###### bot.conf fayl ichiga quyidagilar yoziladi #######
+        [program:book_bot] ### 'book_bot' o'rniga loyiga nomi yoziladi
+        directory=/home/ubuntu/........ ##### '........' -> bu yerga papka nomi yoziladi(git hubda yozilgan repozitory nomi). Misol: book_bot
+        command=python3 ..... ##### '.....' -> bu yerga asosiy fayl nomi yoziladi. Misol: app.py
+
+        autostart=true
+        autorestart=true
+        environment=HOME="/home/ubuntu", USER="ubuntu"
+
+        stderr_logfile=/home/ubuntu/....../logfile_err.log ##### '........' -> bu yerga papka nomi yoziladi(git hubda yozilgan repozitory nomi). Misol: book_bot
+        stdout_logfile=/home/ubuntu/....../logfile.log ##### '........' -> bu yerga papka nomi yoziladi(git hubda yozilgan repozitory nomi). Misol: book_bot
+
+2. git clone ..... ### "....." -> o'rniga git hubdagi repozitory silkasi qo'yiladi
+3. pip3 install -r requirements.txt ### barcha kerakli paketlar o'rnatiladi
+4. sudo supervisorctl status all ### barcha loyihalarni holatini(statusini ko'rsatadi)
+5. sudo supervisorctl restart .... ### '....' -> o'rniga 4-bo'limdagi loyiha nomi yoziladi
+
